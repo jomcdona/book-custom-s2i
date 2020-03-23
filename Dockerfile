@@ -1,7 +1,7 @@
 FROM centos:latest
 MAINTAINER noconnor@redhat.com
 
-RUN yum install -y java wget mvn --setopt=tsflags=nodocs && yum -y clean all
+RUN yum install -y java &&  wget mvn --setopt=tsflags=nodocs && yum -y clean all
 
 LABEL io.k8s.description="Platform for building and running Java8 applications" \
       io.k8s.display-name="Java8" \
