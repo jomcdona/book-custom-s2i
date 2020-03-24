@@ -1,7 +1,9 @@
 FROM centos:latest
 MAINTAINER noconnor@redhat.com
 
-RUN yum install -y java &&  yum install -y mvn && yum -y clean all
+RUN yum install -y java && yum -y clean all
+RUN curl https://downloads.apache.org/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz -o /tmp/apache-maven.tar.gz
+RUN tar xzf /tmp/apache-maven.tar.gz -C /opt && ln -s /opt/apache-maven-3.6.0 /opt/maven
 
 LABEL io.k8s.description="Platform for building and running Java8 applications" \
       io.k8s.display-name="Java8" \
